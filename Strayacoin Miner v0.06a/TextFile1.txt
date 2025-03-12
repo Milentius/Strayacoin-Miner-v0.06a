@@ -1,0 +1,205 @@
+﻿
+30        TopBorder		    30		   TopBorder          30      TopBorder			   40	         TopBorder                    New Line
++----------------------------+-----------------------------+----------------------------+---------------------------------------+
+30        DrawRow		    30		   DrawRow            30      DrawRow			   40	         DrawRow                      New Line
+|                            |							   |						    |									    |
+30        BottomBorder	    30         BottomBorder	      30      BottomBorder		   40            BottomBorder				  New Line
++----------------------------+----------------------+------+--------+-----+-------------+---------------------------------------+
+
+30        TopBorder         20      TopBorder      20   TopBorder   20   TopBorder     40			TopBorder				      New Line        
++----------------------------+----------------------+------+--------+-----+-------------+---------------------------------------+
+30        DrawRow		    20		   DrawRow            20      DrawRow			   40	         DrawRow                      New Line
+|                            |                      |               |                   |                                       |
+30        BottomBorder	    20         BottomBorder	      20      BottomBorder		   40            BottomBorder				  New Line
++----------------------------+----------------------+---------------+-------------------+---------------------------------------+
+
+30        TopBorder         20      TopBorder      20   TopBorder   20   TopBorder     40            TopBorder                    New Line        
++----------------------------+----------------------+---------------+-------------------+---------------------------------------+
+30        DrawRow		    20		   DrawRow            20      DrawRow			   40	         DrawRow                      New Line
+|                            |                      |               |                   |                                       |
+30        BottomBorder	    20         BottomBorder	      20      BottomBorder		   40            BottomBorder				  New Line
++----------------------------+----------------------+---------------+-------------------+---------------------------------------+
+
+30        TopBorder         60                       TopBorder                         20   TopBorder   10 TopBorder 10 TopBorder New Line        
++----------------------------+                                                          +----------------+-----------+----------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	  DrawRow   10 DrawRow  10 DrawRow    New Line
+|                            |                                                          |                |           |          |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20 BottomBorder 10 BottomBorder 10 BottomBorder New Line
++----------------------------+                                                          +----------------+-----------+----------+
+
+30        TopBorder         20         DrawRow     20   DrawRow     20   DrawRow       20    TopBorder          TopBorder         New Line        
++----------------------------+                                                          +----------------+----------------------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	 DrawRow            DrawRow           New Line
+|                            |                                                          |                |                      |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20  BottomBorder         BottomBorder      New Line
++----------------------------+                                                          +----------------+----------------------+
+
+30        TopBorder         20         DrawRow     20   DrawRow     20   DrawRow       20    TopBorder          TopBorder         New Line        
++----------------------------+                                                          +----------------+----------------------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	 DrawRow            DrawRow           New Line
+|                            |                                                          |                |                      |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20   BottomBorder        BottomBorder      New Line
++----------------------------+                                                          +----------------+----------------------+
+
+30        TopBorder         20         DrawRow     20   DrawRow     20   DrawRow       20    TopBorder          TopBorder         New Line        
++----------------------------+                                                          +----------------+----------------------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	 DrawRow            DrawRow           New Line
+|                            |                                                          |                |                      |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20    BottomBorder       BottomBorder      New Line
++----------------------------+                                                          +----------------+----------------------+
+
+30        TopBorder         20         DrawRow     20   DrawRow     20   DrawRow       20    TopBorder          TopBorder         New Line
++----------------------------+                                                          +----------------+----------------------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	 DrawRow            DrawRow           New Line
+|                            |                                                          |                |                      |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20    BottomBorder       BottomBorder      New Line
++----------------------------+                                                          +----------------+----------------------+
+
+30        TopBorder         20         DrawRow     20   DrawRow     20   DrawRow       20    TopBorder          TopBorder         New Line
++----------------------------+                                                          +----------------+----------------------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	 DrawRow            DrawRow           New Line
+|                            |                                                          |                |                      |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20    BottomBorder       BottomBorder      New Line
++----------------------------+                                                          +----------------+----------------------+
+
+30        TopBorder         20         DrawRow     20   DrawRow     20   DrawRow       20    TopBorder          TopBorder         New Line
++----------------------------+                                                          +----------------+----------------------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	 DrawRow            DrawRow           New Line
+|                            |                                                          |                |                      |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20    BottomBorder       BottomBorder      New Line
++----------------------------+                                                          +----------------+----------------------+
+
+30        TopBorder         20         DrawRow     20   DrawRow     20   DrawRow       20    TopBorder          TopBorder         New Line
++----------------------------+                                                          +----------------+----------------------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	 DrawRow            DrawRow           New Line
+|                            |                                                          |                |                      |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20    BottomBorder       BottomBorder      New Line
++----------------------------+                                                          +----------------+----------------------+
+
+30        TopBorder         20         DrawRow     20   DrawRow     20   DrawRow       20    TopBorder          TopBorder         New Line
++----------------------------+                                                          +----------------+----------------------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	 DrawRow            DrawRow           New Line
+|                            |                                                          |                |                      |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20    BottomBorder       BottomBorder      New Line
++---------------------------------------------------------------------------------------+----------------+----------------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++-------------------------Option---------------------------+
+|                                                          |
+30        TopBorder		    30		   TopBorder          30      TopBorder			   40	         TopBorder                    New Line
++----------------------------+-----------------------------+----------------------------+---------------------------------------+
+30        DrawRow		    30		   DrawRow            30      DrawRow			   40	         DrawRow                      New Line
+|                            |							   |						    |									    |
+30        BottomBorder	    30         BottomBorder	      30      BottomBorder		   40            BottomBorder				  New Line
++----------------------------+----------------------+------+--------+-----+-------------+---------------------------------------+
+
+30        TopBorder         20      TopBorder      20   TopBorder   20   TopBorder     40			TopBorder				      New Line        
++----------------------------+----------------------+------+--------+-----+-------------+---------------------------------------+
+30        DrawRow		    20		   DrawRow            20      DrawRow			   40	         DrawRow                      New Line
+|                            |                      |               |                   |                                       |
+30        BottomBorder	    20         BottomBorder	      20      BottomBorder		   40            BottomBorder				  New Line
++----------------------------+----------------------+---------------+-------------------+---------------------------------------+
+
+30        TopBorder         20      TopBorder      20   TopBorder   20   TopBorder     40            TopBorder                    New Line        
++----------------------------+----------------------+---------------+-------------------+---------------------------------------+
+30        DrawRow		    20		   DrawRow            20      DrawRow			   40	         DrawRow                      New Line
+|                            |                      |               |                   |                                       |
+30        BottomBorder	    20         BottomBorder	      20      BottomBorder		   40            BottomBorder				  New Line
++----------------------------+----------------------+---------------+-------------------+---------------------------------------+
+
+30        TopBorder         60                       TopBorder                         20   TopBorder   10 TopBorder 10 TopBorder New Line        
++----------------------------+                                                          +----------------+-----------+----------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	  DrawRow   10 DrawRow  10 DrawRow    New Line
+|                            |                                                          |                |           |          |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20 BottomBorder 10 BottomBorder 10 BottomBorder New Line
++----------------------------+                                                          +----------------+-----------+----------+
+
+30        TopBorder         20         DrawRow     20   DrawRow     20   DrawRow       20    TopBorder          TopBorder         New Line        
++----------------------------+                                                          +----------------+----------------------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	 DrawRow            DrawRow           New Line
+|                            |                                                          |                |                      |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20  BottomBorder         BottomBorder      New Line
++----------------------------+                                                          +----------------+----------------------+
+
+30        TopBorder         20         DrawRow     20   DrawRow     20   DrawRow       20    TopBorder          TopBorder         New Line        
++----------------------------+                                                          +----------------+----------------------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	 DrawRow            DrawRow           New Line
+|                            |                                                          |                |                      |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20   BottomBorder        BottomBorder      New Line
++----------------------------+                                                          +----------------+----------------------+
+
+30        TopBorder         20         DrawRow     20   DrawRow     20   DrawRow       20    TopBorder          TopBorder         New Line        
++----------------------------+                                                          +----------------+----------------------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	 DrawRow            DrawRow           New Line
+|                            |                                                          |                |                      |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20    BottomBorder       BottomBorder      New Line
++----------------------------+                                                          +----------------+----------------------+
+
+30        TopBorder         20         DrawRow     20   DrawRow     20   DrawRow       20    TopBorder          TopBorder         New Line
++----------------------------+                                                          +----------------+----------------------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	 DrawRow            DrawRow           New Line
+|                            |                                                          |                |                      |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20    BottomBorder       BottomBorder      New Line
++----------------------------+                                                          +----------------+----------------------+
+
+30        TopBorder         20         DrawRow     20   DrawRow     20   DrawRow       20    TopBorder          TopBorder         New Line
++----------------------------+                                                          +----------------+----------------------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	 DrawRow            DrawRow           New Line
+|                            |                                                          |                |                      |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20    BottomBorder       BottomBorder      New Line
++----------------------------+                                                          +----------------+----------------------+
+
+30        TopBorder         20         DrawRow     20   DrawRow     20   DrawRow       20    TopBorder          TopBorder         New Line
++----------------------------+                                                          +----------------+----------------------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	 DrawRow            DrawRow           New Line
+|                            |                                                          |                |                      |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20    BottomBorder       BottomBorder      New Line
++----------------------------+                                                          +----------------+----------------------+
+
+30        TopBorder         20         DrawRow     20   DrawRow     20   DrawRow       20    TopBorder          TopBorder         New Line
++----------------------------+                                                          +----------------+----------------------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	 DrawRow            DrawRow           New Line
+|                            |                                                          |                |                      |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20    BottomBorder       BottomBorder      New Line
++----------------------------+                                                          +----------------+----------------------+
+
+30        TopBorder         20         DrawRow     20   DrawRow     20   DrawRow       20    TopBorder          TopBorder         New Line
++----------------------------+                                                          +----------------+----------------------+
+30        DrawRow		    20         DrawRow     20   DrawRow     20   DrawRow       20	 DrawRow            DrawRow           New Line
+|                            |                                                          |                |                      |
+30        BottomBorder	    20         DrawRow     20   DrawRow     20   DrawRow       20    BottomBorder       BottomBorder      New Line
++---------------------------------------------------------------------------------------+----------------+----------------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+| █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █                                                                                       |
+|                                                                                                                               |
+|                                                                                                                               |
++-------------------------------------------------------------------------------------------------------------------------------+ 
