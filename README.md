@@ -1,0 +1,1 @@
+# Strayacoin Miner v0.06a
