@@ -12,6 +12,22 @@ namespace Strayacoin_Miner_v0._06a
         T Evaluate(object propertyValue);
     }
 
+    public class WalletInstallDirectoryEvaluator : ISettingEvaluator<bool>
+    {
+        public bool Evaluate(object propertyValue)
+        {
+            if(propertyValue != null && propertyValue.ToString().Contains("Strayacoin Wallet 2.0.0 Final"))
+            {
+                if(File.Exists(Path.Combine(propertyValue.ToString(),"strayacoin-qt.exe")))
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+    }
+
     public class WalletExecutableEvaluator : ISettingEvaluator<bool>
     {
         public bool Evaluate(object propertyValue)
@@ -165,6 +181,18 @@ namespace Strayacoin_Miner_v0._06a
                 
             }
             return !string.IsNullOrEmpty(propertyValue as string);
+        }
+    }
+
+    public class Use_Mining_Pool : ISettingEvaluator<bool>
+    {
+        public bool Evaluate(object propertyValue)
+        {
+            if(propertyValue = true)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

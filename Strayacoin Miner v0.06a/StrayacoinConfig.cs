@@ -26,6 +26,11 @@ namespace Strayacoin_Miner_v0._06a
         public int MaxCoresAllowed { get; set; }
 
         /// <summary>
+        /// WalletInstallDirectory - [String] - [Path to the Wallet Installation folder]
+        /// </summary>
+        public string WalletInstallDirectory { get; set; }
+
+        /// <summary>
         /// WalletExecutable - [String] - [Path to the Wallet Executable]
         /// </summary>
         public string WalletExecutable { get; set; }
@@ -46,14 +51,6 @@ namespace Strayacoin_Miner_v0._06a
         public string ConfigFile_User { get; set; }
         
         /// <summary>
-        /// ConfigTest - [int] - [Test Configuration File]
-        /// [0 = Success]
-        /// [1 = Mismatch Username]
-        /// [2 = Mismatch Password]
-        /// </summary>
-        public int ConfigTest { get; set; }
-
-        /// <summary>
         /// PaymentAddress
         /// string - Wallet Address to receive payments from mining
         /// </summary>
@@ -64,6 +61,11 @@ namespace Strayacoin_Miner_v0._06a
         /// MiningCores - [int] - [Number of cores to be used for mining, this can be changed while mining]
         /// </summary>
         public int MiningCores { get; set; }
+
+        /// <summary>
+        /// Mining_PoolURL - [String] - [URL of the Mining Pool]
+        /// </summary>
+        public bool Use_Mining_Pool { get; set; } = false;
 
         /// <summary>
         /// Mining_PoolURL - [String] - [URL of the Mining Pool]

@@ -16,137 +16,122 @@ namespace Strayacoin_Miner_v0._06a
             atd = ATD;
         }
 
-        public void RenderUI(string Title)
+        public void RenderUI() 
         {
-            // First Row
-            atd.TableWidth = 30; atd.DrawTopBorder(false);          atd.TableWidth = 30; atd.DrawTopBorder(false);          atd.TableWidth = 30; atd.DrawTopBorder(false);          atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false);            atd.TableWidth = 30; atd.DrawRow($"{Title}", false);            atd.TableWidth = 30; atd.DrawRow("", false);            atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false);       atd.TableWidth = 30; atd.DrawBottomBorder(false);       atd.TableWidth = 30; atd.DrawBottomBorder(false);       atd.TableWidth = 40; atd.DrawBottomBorder(true);
+            
+            // Fourth Row
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 70; atd.DrawTopBorder(false);              atd.TableWidth = 20; atd.DrawTopBorder(false);              atd.TableWidth = 10; atd.DrawTopBorder(false);                  atd.TableWidth = 10; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 70; atd.DrawRow("", false);                atd.TableWidth = 20; atd.DrawRow("", false);                atd.TableWidth = 10; atd.DrawRow("", false);                    atd.TableWidth = 10; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 70; atd.DrawBottomBorder(false);           atd.TableWidth = 20; atd.DrawBottomBorder(false);           atd.TableWidth = 10; atd.DrawBottomBorder(false);               atd.TableWidth = 10; atd.DrawBottomBorder(true);
 
             // Second Row
-            atd.TableWidth = 30; atd.DrawTopBorder(false);          atd.TableWidth = 20; atd.DrawTopBorder(false);          atd.TableWidth = 20; atd.DrawTopBorder(false);          atd.TableWidth = 20; atd.DrawTopBorder(false);          atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false);            atd.TableWidth = 20; atd.DrawRow("", false);            atd.TableWidth = 20; atd.DrawRow("", false);            atd.TableWidth = 20; atd.DrawRow("", false);            atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false);       atd.TableWidth = 20; atd.DrawBottomBorder(false);       atd.TableWidth = 20; atd.DrawBottomBorder(false);       atd.TableWidth = 20; atd.DrawBottomBorder(false);       atd.TableWidth = 40; atd.DrawBottomBorder(true);
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 20; atd.DrawTopBorder(false);              atd.TableWidth = 20; atd.DrawTopBorder(false);              atd.TableWidth = 20; atd.DrawTopBorder(false);                  atd.TableWidth = 50; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 20; atd.DrawRow("", false);                atd.TableWidth = 20; atd.DrawRow("", false);                atd.TableWidth = 20; atd.DrawRow("", false);                    atd.TableWidth = 50; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 20; atd.DrawBottomBorder(false);           atd.TableWidth = 20; atd.DrawBottomBorder(false);           atd.TableWidth = 20; atd.DrawBottomBorder(false);               atd.TableWidth = 50; atd.DrawBottomBorder(true);
 
             // Third Row
-            atd.TableWidth = 30; atd.DrawTopBorder(false);          atd.TableWidth = 20; atd.DrawTopBorder(false);          atd.TableWidth = 20; atd.DrawTopBorder(false);          atd.TableWidth = 20; atd.DrawTopBorder(false);          atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false);            atd.TableWidth = 20; atd.DrawRow("", false);            atd.TableWidth = 20; atd.DrawRow("", false);            atd.TableWidth = 20; atd.DrawRow("", false);            atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false);       atd.TableWidth = 20; atd.DrawBottomBorder(false);       atd.TableWidth = 20; atd.DrawBottomBorder(false);       atd.TableWidth = 20; atd.DrawBottomBorder(false);       atd.TableWidth = 40; atd.DrawBottomBorder(true);
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 40; atd.DrawTopBorder(false);              atd.TableWidth = 30; atd.DrawTopBorder(false);             atd.TableWidth = 40; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 40; atd.DrawRow("", false);                atd.TableWidth = 30; atd.DrawRow("", false);               atd.TableWidth = 40; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 40; atd.DrawBottomBorder(false);           atd.TableWidth = 30; atd.DrawBottomBorder(false);          atd.TableWidth = 40; atd.DrawBottomBorder(true);
 
             // Fourth Row
-            atd.TableWidth = 30; atd.DrawTopBorder(false);          atd.TableWidth = 60; atd.DrawTopBorder(false);          atd.TableWidth = 20; atd.DrawTopBorder(false);          atd.TableWidth = 10; atd.DrawTopBorder(false);          atd.TableWidth = 10; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false);            atd.TableWidth = 60; atd.DrawRow("", false);            atd.TableWidth = 20; atd.DrawRow("", false);            atd.TableWidth = 10; atd.DrawRow("", false);            atd.TableWidth = 10; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false);       atd.TableWidth = 60; atd.DrawBottomBorder(false);       atd.TableWidth = 20; atd.DrawBottomBorder(false);       atd.TableWidth = 10; atd.DrawBottomBorder(false);       atd.TableWidth = 10; atd.DrawBottomBorder(true);
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 70; atd.DrawTopBorder(false);                                                                          atd.TableWidth = 40; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 70; atd.DrawRow("", false);                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 70; atd.DrawRow("", false);                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
 
-            // Fifth Row
-            atd.TableWidth = 30; atd.DrawTopBorder(false);          atd.TableWidth = 60; atd.DrawTopBorder(false);                                                                                                                          atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false);            atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false);       atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
-                                                                                                                                                                                                                                           
-            // Sixth Row                                                                                                                                                                                                                   
-            atd.TableWidth = 30; atd.DrawTopBorder(false);          atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false);            atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false);       atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
-                                                                                                                                                                                                                                           
-            // Seventh Row                                                                                                                                                                                                                 
-            atd.TableWidth = 30; atd.DrawTopBorder(false);          atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false);            atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false);       atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
-                                                                                                                                                                                                                                           
-            // Eighth Row                                                                                                                                                                                                                  
-            atd.TableWidth = 30; atd.DrawTopBorder(false);          atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false);            atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false);       atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
-                                                                                                                                                                                                                                           
-            // Ninth Row                                                                                                                                                                                                                   
-            atd.TableWidth = 30; atd.DrawTopBorder(false);          atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false);            atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false);       atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
-                                                                                                                                                                                                                                           
-            // Tenth Row                                                                                                                                                                                                                   
-            atd.TableWidth = 30; atd.DrawTopBorder(false);          atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false);            atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false);       atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
-                                                                                                                                                                                                                                           
-            // Eleventh Row                                                                                                                                                                                                                
-            atd.TableWidth = 30; atd.DrawTopBorder(false);          atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false);            atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false);       atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
-                                                                                                                                                                                                                                           
-            // Twelfth Row                                                                                                                                                                                                                 
-            atd.TableWidth = 30; atd.DrawTopBorder(false);          atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false);            atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false);       atd.TableWidth = 60; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
+            // Fifth Row                                                                                                                                                                                                                                                                              
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 70; atd.DrawRow("", false);                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 70; atd.DrawRow("", false);                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 70; atd.DrawRow("", false);                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
+
+            // Sixth Row                                                                                                                                                                                                                                                                            
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 70; atd.DrawRow("", false);                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 70; atd.DrawRow("", false);                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 70; atd.DrawRow("", false);                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
+
+            // Seventh Row                                                                                                                                                                                                                                                                             
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 70; atd.DrawRow("", false);                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 70; atd.DrawRow("", false);                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 70; atd.DrawRow("", false);                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
+
         }
 
-        public void RenderUI_1to4()
+        public void OLD_RenderUI(
+            string Title,
+            string infoSlot_R1C1,
+            string infoSlot_R1C2,
+            string infoSlot_R1C3,
+            string infoSlot_R1C4,
+            string infoSlot_R2C1,
+            string infoSlot_R2C2,
+            string infoSlot_R2C3,
+            string infoSlot_R2C4,
+            string infoSlot_R2C5,
+            string infoSlot_R2C6
+
+            )
         {
             // First Row
-            atd.TableWidth = 30; atd.DrawTopBorder(false); atd.TableWidth = 30; atd.DrawTopBorder(false); atd.TableWidth = 30; atd.DrawTopBorder(false); atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false); atd.TableWidth = 30; atd.DrawRow("", false); atd.TableWidth = 30; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false); atd.TableWidth = 30; atd.DrawBottomBorder(false); atd.TableWidth = 30; atd.DrawBottomBorder(false); atd.TableWidth = 40; atd.DrawBottomBorder(true);
+            atd.TableWidth = 40; atd.DrawTopBorder(false);                          atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 30; atd.DrawTopBorder(false);          atd.TableWidth = 40; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow($"{infoSlot_R1C1}", false);            atd.TableWidth = 40; atd.DrawRow($"{infoSlot_R1C2}", false);    atd.TableWidth = 30; atd.DrawRow($"{infoSlot_R1C3}", false);            atd.TableWidth = 40; atd.DrawRow($"{infoSlot_R1C4}", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);                       atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 30; atd.DrawBottomBorder(false);       atd.TableWidth = 40; atd.DrawBottomBorder(true);
 
             // Second Row
-            atd.TableWidth = 30; atd.DrawTopBorder(false); atd.TableWidth = 20; atd.DrawTopBorder(false); atd.TableWidth = 20; atd.DrawTopBorder(false); atd.TableWidth = 20; atd.DrawTopBorder(false); atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false); atd.TableWidth = 20; atd.DrawRow("", false); atd.TableWidth = 20; atd.DrawRow("", false); atd.TableWidth = 20; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false); atd.TableWidth = 20; atd.DrawBottomBorder(false); atd.TableWidth = 20; atd.DrawBottomBorder(false); atd.TableWidth = 20; atd.DrawBottomBorder(false); atd.TableWidth = 40; atd.DrawBottomBorder(true);
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 20; atd.DrawTopBorder(false);          atd.TableWidth = 20; atd.DrawTopBorder(false);          atd.TableWidth = 20; atd.DrawTopBorder(false);          atd.TableWidth = 50; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow($"{infoSlot_R2C1}", false);            atd.TableWidth = 20; atd.DrawRow($"{infoSlot_R2C2}", false);            atd.TableWidth = 20; atd.DrawRow($"{infoSlot_R2C4}", false);            atd.TableWidth = 20; atd.DrawRow($"{infoSlot_R2C5}", false);            atd.TableWidth = 50; atd.DrawRow($"{infoSlot_R2C6}", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 20; atd.DrawBottomBorder(false);       atd.TableWidth = 20; atd.DrawBottomBorder(false);       atd.TableWidth = 20; atd.DrawBottomBorder(false);       atd.TableWidth = 50; atd.DrawBottomBorder(true);
 
             // Third Row
-            atd.TableWidth = 30; atd.DrawTopBorder(false); atd.TableWidth = 20; atd.DrawTopBorder(false); atd.TableWidth = 20; atd.DrawTopBorder(false); atd.TableWidth = 20; atd.DrawTopBorder(false); atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false); atd.TableWidth = 20; atd.DrawRow("", false); atd.TableWidth = 20; atd.DrawRow("", false); atd.TableWidth = 20; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false); atd.TableWidth = 20; atd.DrawBottomBorder(false); atd.TableWidth = 20; atd.DrawBottomBorder(false); atd.TableWidth = 20; atd.DrawBottomBorder(false); atd.TableWidth = 40; atd.DrawBottomBorder(true);
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 20; atd.DrawTopBorder(false);          atd.TableWidth = 20; atd.DrawTopBorder(false);          atd.TableWidth = 20; atd.DrawTopBorder(false);          atd.TableWidth = 50; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 20; atd.DrawRow("", false);            atd.TableWidth = 20; atd.DrawRow("", false);            atd.TableWidth = 20; atd.DrawRow("", false);            atd.TableWidth = 50; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 20; atd.DrawBottomBorder(false);       atd.TableWidth = 20; atd.DrawBottomBorder(false);       atd.TableWidth = 20; atd.DrawBottomBorder(false);       atd.TableWidth = 50; atd.DrawBottomBorder(true);
 
             // Fourth Row
-            atd.TableWidth = 30; atd.DrawTopBorder(false); atd.TableWidth = 60; atd.DrawTopBorder(false); atd.TableWidth = 20; atd.DrawTopBorder(false); atd.TableWidth = 10; atd.DrawTopBorder(false); atd.TableWidth = 10; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 20; atd.DrawRow("", false); atd.TableWidth = 10; atd.DrawRow("", false); atd.TableWidth = 10; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false); atd.TableWidth = 60; atd.DrawBottomBorder(false); atd.TableWidth = 20; atd.DrawBottomBorder(false); atd.TableWidth = 10; atd.DrawBottomBorder(false); atd.TableWidth = 10; atd.DrawBottomBorder(true);
-        }
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 70; atd.DrawTopBorder(false);          atd.TableWidth = 20; atd.DrawTopBorder(false);          atd.TableWidth = 10; atd.DrawTopBorder(false);          atd.TableWidth = 10; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 70; atd.DrawRow("", false);            atd.TableWidth = 20; atd.DrawRow("", false);            atd.TableWidth = 10; atd.DrawRow("", false);            atd.TableWidth = 10; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 70; atd.DrawBottomBorder(false);       atd.TableWidth = 20; atd.DrawBottomBorder(false);       atd.TableWidth = 10; atd.DrawBottomBorder(false);       atd.TableWidth = 10; atd.DrawBottomBorder(true);
 
-        public void RenderUI_5to9()
-        {
             // Fifth Row
-            atd.TableWidth = 30; atd.DrawTopBorder(false); atd.TableWidth = 60; atd.DrawTopBorder(false); atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawBottomBorder(true);
-
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 70; atd.DrawTopBorder(false);                                                                                                                          atd.TableWidth = 40; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
+                                                                                                                                                                                                                                           
             // Sixth Row                                                                                                                                                                                                                   
-            atd.TableWidth = 30; atd.DrawTopBorder(false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawBottomBorder(true);
-
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
+                                                                                                                                                                                                                                           
             // Seventh Row                                                                                                                                                                                                                 
-            atd.TableWidth = 30; atd.DrawTopBorder(false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawBottomBorder(true);
-
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
+                                                                                                                                                                                                                                           
             // Eighth Row                                                                                                                                                                                                                  
-            atd.TableWidth = 30; atd.DrawTopBorder(false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawBottomBorder(true);
-
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
+                                                                                                                                                                                                                                           
             // Ninth Row                                                                                                                                                                                                                   
-            atd.TableWidth = 30; atd.DrawTopBorder(false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false); atd.TableWidth = 60; atd.DrawRow("", true);
-        }
-
-        public void RenderUI_10to12()
-        {
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
+                                                                                                                                                                                                                                           
             // Tenth Row                                                                                                                                                                                                                   
-            atd.TableWidth = 30; atd.DrawTopBorder(false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawBottomBorder(true);
-
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
+                                                                                                                                                                                                                                           
             // Eleventh Row                                                                                                                                                                                                                
-            atd.TableWidth = 30; atd.DrawTopBorder(false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawBottomBorder(true);
-
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
+                                                                                                                                                                                                                                           
             // Twelfth Row                                                                                                                                                                                                                 
-            atd.TableWidth = 30; atd.DrawTopBorder(false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawTopBorder(true);
-            atd.TableWidth = 30; atd.DrawRow("", false); atd.TableWidth = 60; atd.DrawRow("", false); atd.TableWidth = 40; atd.DrawRow("", true);
-            atd.TableWidth = 30; atd.DrawBottomBorder(false); atd.TableWidth = 60; atd.DrawRow("", false);
+            atd.TableWidth = 40; atd.DrawTopBorder(false);          atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawTopBorder(true);
+            atd.TableWidth = 40; atd.DrawRow("", false);            atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawRow("", true);
+            atd.TableWidth = 40; atd.DrawBottomBorder(false);       atd.TableWidth = 70; atd.DrawRow("", false);                                                                                                                            atd.TableWidth = 40; atd.DrawBottomBorder(true);
         }
+
 
         public void TEST_RenderVisualBlockUI()
         {

@@ -16,11 +16,11 @@ namespace Strayacoin_Miner_v0._06a
             
             atd.Padding = 2;
             
-            Console.SetWindowSize(140, 40);
+            Console.SetWindowSize(150, 50);
 
 
             UI_Renderer uir = new UI_Renderer(atd);
-            uir.RenderUI("Strayacoin Miner v0.06a Pre Beta");
+            uir.RenderUI();
             Console.ReadLine();
 
 
