@@ -13,24 +13,14 @@ namespace Strayacoin_Miner_v0._06a
 {
     public class sm_lib
     {
-
         private readonly string cliPath;
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
         public sm_lib(string cliPath)
         {
             this.cliPath = cliPath;
         }
 
-        /// <summary>
-        /// Executes a command using the Strayacoin CLI and returns the output as a JSON string.
-        /// </summary>
-        /// <param name="arguments">The arguments to pass to the Strayacoin CLI command.</param>
-        /// <returns>A JSON string containing the output of the executed command.</returns>
-        /// <exception cref="Exception">Thrown when the command execution fails.</exception>
-        public string ExecuteCommand(string arguments)
+        public async Task<string> ExecuteCommandAsync(string arguments)
         {
             var processStartInfo = new ProcessStartInfo
             {
@@ -53,7 +43,7 @@ namespace Strayacoin_Miner_v0._06a
                 process.Start();
                 process.BeginOutputReadLine();
                 process.BeginErrorReadLine();
-                process.WaitForExit();
+                await process.WaitForExitAsync();
 
                 if (process.ExitCode != 0)
                 {
@@ -64,279 +54,150 @@ namespace Strayacoin_Miner_v0._06a
             }
         }
 
-        /// <summary>
-        /// Depreciated - Get the account associated with an address
-        /// </summary>
-        /// <returns>Returns JSON String</returns>
-        public string GetAccount(string address)
+        public async Task<string> GetAccountAsync(string address)
         {
-            return ExecuteCommand($"getaccount \"{address}\"");
+            return await ExecuteCommandAsync($"getaccount \"{address}\"");
         }
 
-        /// <summary>
-        /// Retrieves detailed information about the blockchain from the Strayacoin CLI.
-        /// </summary>
-        /// <returns>A JSON string containing detailed information about the blockchain.</returns>
-        public string GetBlockchainInfo()
+        public async Task<string> GetBlockchainInfoAsync()
         {
-            return ExecuteCommand("getblockchaininfo");
+            return await ExecuteCommandAsync("getblockchaininfo");
         }
 
-        /// <summary>
-        /// Retrieves the current block count from the Strayacoin CLI.
-        /// </summary>
-        /// <returns>An integer representing the current block count.</returns>
-        public int GetBlockCount()
+        public async Task<int> GetBlockCountAsync()
         {
-            var output = ExecuteCommand("getblockcount");
+            var output = await ExecuteCommandAsync("getblockcount");
             return int.Parse(output.Trim());
         }
 
-        /// <summary>
-        /// Backs up the wallet.dat file to a specified destination.
-        /// </summary>
-        /// <param name="destination">The destination path where the wallet.dat file will be backed up.</param>
-        /// <returns>A JSON string indicating the result of the backup operation.</returns>
-        public string BackupWallet(string destination)
+        public async Task<string> BackupWalletAsync(string destination)
         {
-            return ExecuteCommand($"backupwallet \"{destination}\"");
+            return await ExecuteCommandAsync($"backupwallet \"{destination}\"");
         }
 
-        /// <summary>
-        /// Encrypts the wallet with a passphrase to secure it.
-        /// </summary>
-        /// <param name="passphrase">The passphrase to use for encrypting the wallet.</param>
-        /// <returns>A JSON string indicating the result of the encryption operation.</returns>
-        public string EncryptWallet(string passphrase)
+        public async Task<string> EncryptWalletAsync(string passphrase)
         {
-            return ExecuteCommand($"encryptwallet \"{passphrase}\"");
+            return await ExecuteCommandAsync($"encryptwallet \"{passphrase}\"");
         }
 
-        /// <summary>
-        /// Imports a private key into the wallet from a file.
-        /// </summary>
-        /// <param name="filename">The path to the file containing the private key to be imported.</param>
-        /// <returns>A JSON string indicating the result of the import operation.</returns>
-        public string ImportWallet(string filename)
+        public async Task<string> ImportWalletAsync(string filename)
         {
-            return ExecuteCommand($"importwallet \"{filename}\"");
+            return await ExecuteCommandAsync($"importwallet \"{filename}\"");
         }
 
-        /// <summary>
-        /// Get the balance of an account
-        /// </summary>
-        /// <param name="account"></param>
-        /// <param name="minconf"></param>
-        /// <param name="includeWatchonly"></param>
-        /// <returns>Returns JSON String</returns>
-        public string GetBalance(string account, int minconf = 1, bool includeWatchonly = false)
+        public async Task<string> GetBalanceAsync(string account, int minconf = 1, bool includeWatchonly = false)
         {
-            return ExecuteCommand($"getbalance \"{account}\" {minconf} {includeWatchonly.ToString().ToLower()}");
+            return await ExecuteCommandAsync($"getbalance \"{account}\" {minconf} {includeWatchonly.ToString().ToLower()}");
         }
 
-
-        /// <summary>
-        /// Retrieves the unconfirmed balance of the wallet from the Strayacoin CLI.
-        /// </summary>
-        /// <returns>A JSON string containing the unconfirmed balance of the wallet.</returns>
-        public string GetUnconfirmedBalance()
+        public async Task<string> GetUnconfirmedBalanceAsync()
         {
-            return ExecuteCommand("getunconfirmedbalance");
+            return await ExecuteCommandAsync("getunconfirmedbalance");
         }
 
-        /// <summary>
-        /// Retrieves detailed information about the local running wallet from the Strayacoin CLI.
-        /// </summary>
-        /// <returns>A JSON string containing detailed information about the wallet.</returns>
-        public string GetWalletInfo()
+        public async Task<string> GetWalletInfoAsync()
         {
-            return ExecuteCommand("getwalletinfo");
+            return await ExecuteCommandAsync("getwalletinfo");
         }
 
-
-        /// <summary>
-        /// Retrives a detailed list of all accounts in the local wallet
-        /// </summary>
-        /// <param name="minconf"></param>
-        /// <param name="includeWatchonly"></param>
-        /// <returns></returns>
-        public string ListAccounts(int minconf = 1, bool includeWatchonly = false)
+        public async Task<string> ListAccountsAsync(int minconf = 1, bool includeWatchonly = false)
         {
-            return ExecuteCommand($"listaccounts {minconf} {includeWatchonly.ToString().ToLower()}");
+            return await ExecuteCommandAsync($"listaccounts {minconf} {includeWatchonly.ToString().ToLower()}");
         }
 
-        /// <summary>
-        /// Lists the balance of all accounts in the local wallet sorted by the account name.
-        /// </summary>
-        /// <param name="minconf"></param>
-        /// <param name="includeEmpty"></param>
-        /// <param name="includeWatchonly"></param>
-        /// <returns></returns>
-        public string ListReceivedByAccount(int minconf = 1, bool includeEmpty = false, bool includeWatchonly = false)
+        public async Task<string> ListReceivedByAccountAsync(int minconf = 1, bool includeEmpty = false, bool includeWatchonly = false)
         {
-            return ExecuteCommand($"listreceivedbyaccount {minconf} {includeEmpty.ToString().ToLower()} {includeWatchonly.ToString().ToLower()}");
+            return await ExecuteCommandAsync($"listreceivedbyaccount {minconf} {includeEmpty.ToString().ToLower()} {includeWatchonly.ToString().ToLower()}");
         }
 
-        /// <summary>
-        /// Lists the balance of all addresses in the local wallet sorted by the address of the account.
-        /// </summary>
-        /// <param name="minconf"></param>
-        /// <param name="includeEmpty"></param>
-        /// <param name="includeWatchonly"></param>
-        /// <returns></returns>
-        public string ListReceivedByAddress(int minconf = 1, bool includeEmpty = false, bool includeWatchonly = false)
+        public async Task<string> ListReceivedByAddressAsync(int minconf = 1, bool includeEmpty = false, bool includeWatchonly = false)
         {
-            return ExecuteCommand($"listreceivedbyaddress {minconf} {includeEmpty.ToString().ToLower()} {includeWatchonly.ToString().ToLower()}");
+            return await ExecuteCommandAsync($"listreceivedbyaddress {minconf} {includeEmpty.ToString().ToLower()} {includeWatchonly.ToString().ToLower()}");
         }
 
-        /// <summary>
-        /// Returns up to 'count' most recent transactions skipping the first 'skip' transactions for account 'account'.
-        /// </summary>
-        /// <param name="account">The account name. Should be "*".</param>
-        /// <param name="count">The number of transactions to return (default is 10).</param>
-        /// <param name="skip">The number of transactions to skip (default is 0).</param>
-        /// <param name="includeWatchonly">Whether to include transactions to watch-only addresses (default is false).</param>
-        /// <returns>A JSON string containing the list of transactions.</returns>
-        /// <returns></returns>
-        public string ListTransactions(string account, int count = 10, int skip = 0, bool includeWatchonly = false)
+        public async Task<string> ListTransactionsAsync(string account, int count = 10, int skip = 0, bool includeWatchonly = false)
         {
-            return ExecuteCommand($"listtransactions \"{account}\" {count} {skip} {includeWatchonly.ToString().ToLower()}");
+            return await ExecuteCommandAsync($"listtransactions \"{account}\" {count} {skip} {includeWatchonly.ToString().ToLower()}");
         }
 
-        /// <summary>
-        /// Lists all wallets in the wallet directory.
-        /// </summary>
-        /// <returns></returns>
-        public string ListWallets()
+        public async Task<string> ListWalletsAsync()
         {
-            return ExecuteCommand("listwallets");
+            return await ExecuteCommandAsync("listwallets");
         }
 
-        /// <summary>
-        /// Moves a specified amount from one account to another.
-        /// </summary>
-        /// <param name="fromAccount"></param>
-        /// <param name="toAccount"></param>
-        /// <param name="amount"></param>
-        /// <param name="minconf"></param>
-        /// <param name="comment"></param>
-        /// <returns></returns>
-        public string Move(string fromAccount, string toAccount, decimal amount, int minconf = 1, string comment = "")
+        public async Task<string> MoveAsync(string fromAccount, string toAccount, decimal amount, int minconf = 1, string comment = "")
         {
-            return ExecuteCommand($"move \"{fromAccount}\" \"{toAccount}\" {amount} {minconf} \"{comment}\"");
+            return await ExecuteCommandAsync($"move \"{fromAccount}\" \"{toAccount}\" {amount} {minconf} \"{comment}\"");
         }
 
-        /// <summary>
-        /// Sends a specified amount from one account to another.
-        /// </summary>
-        /// <param name="fromAccount"></param>
-        /// <param name="toAddress"></param>
-        /// <param name="amount"></param>
-        /// <param name="minconf"></param>
-        /// <param name="comment"></param>
-        /// <param name="commentTo"></param>
-        /// <returns></returns>
-        public string SendFrom(string fromAccount, string toAddress, decimal amount, int minconf = 1, string comment = "", string commentTo = "")
+        public async Task<string> SendFromAsync(string fromAccount, string toAddress, decimal amount, int minconf = 1, string comment = "", string commentTo = "")
         {
-            return ExecuteCommand($"sendfrom \"{fromAccount}\" \"{toAddress}\" {amount} {minconf} \"{comment}\" \"{commentTo}\"");
+            return await ExecuteCommandAsync($"sendfrom \"{fromAccount}\" \"{toAddress}\" {amount} {minconf} \"{comment}\" \"{commentTo}\"");
         }
 
-        /// <summary>
-        /// Sends a specified amount to a specified address.
-        /// </summary>
-        /// <param name="address"></param>
-        /// <param name="amount"></param>
-        /// <param name="comment"></param>
-        /// <param name="commentTo"></param>
-        /// <param name="subtractFeeFromAmount"></param>
-        /// <param name="replaceable"></param>
-        /// <param name="confTarget"></param>
-        /// <param name="estimateMode"></param>
-        /// <returns></returns>
-        public string SendToAddress(string address, decimal amount, string comment = "", string commentTo = "", bool subtractFeeFromAmount = false, bool replaceable = false, int confTarget = 6, string estimateMode = "UNSET")
+        public async Task<string> SendToAddressAsync(string address, decimal amount, string comment = "", string commentTo = "", bool subtractFeeFromAmount = false, bool replaceable = false, int confTarget = 6, string estimateMode = "UNSET")
         {
-            return ExecuteCommand($"sendtoaddress \"{address}\" {amount} \"{comment}\" \"{commentTo}\" {subtractFeeFromAmount.ToString().ToLower()} {replaceable.ToString().ToLower()} {confTarget} \"{estimateMode}\"");
+            return await ExecuteCommandAsync($"sendtoaddress \"{address}\" {amount} \"{comment}\" \"{commentTo}\" {subtractFeeFromAmount.ToString().ToLower()} {replaceable.ToString().ToLower()} {confTarget} \"{estimateMode}\"");
         }
 
-        public string SignMessage(string address, string message)
+        public async Task<string> SignMessageAsync(string address, string message)
         {
-            return ExecuteCommand($"signmessage \"{address}\" \"{message}\"");
+            return await ExecuteCommandAsync($"signmessage \"{address}\" \"{message}\"");
         }
 
-
-
-
-        public string GetConnectionCount()
+        public async Task<string> GetConnectionCountAsync()
         {
-            return ExecuteCommand("getconnectioncount");
+            return await ExecuteCommandAsync("getconnectioncount");
         }
 
-
-
-        public string GetNetTotals()
+        public async Task<string> GetNetTotalsAsync()
         {
-            return ExecuteCommand("getnettotals");
+            return await ExecuteCommandAsync("getnettotals");
         }
 
-
-
-        public string GetNetworkInfo()
+        public async Task<string> GetNetworkInfoAsync()
         {
-            return ExecuteCommand("getnetworkinfo");
+            return await ExecuteCommandAsync("getnetworkinfo");
         }
 
-
-
-        public string GetPeerInfo()
+        public async Task<string> GetPeerInfoAsync()
         {
-            return ExecuteCommand("getpeerinfo");
+            return await ExecuteCommandAsync("getpeerinfo");
         }
 
-
-
-
-        public string GetMiningInfo()
+        public async Task<string> GetMiningInfoAsync()
         {
-            return ExecuteCommand("getmininginfo");
+            return await ExecuteCommandAsync("getmininginfo");
         }
 
-
-        public string GetNetworkHashPS(int nblocks = 120, int height = -1)
+        public async Task<string> GetNetworkHashPSAsync(int nblocks = 120, int height = -1)
         {
-            return ExecuteCommand($"getnetworkhashps {nblocks} {height}");
+            return await ExecuteCommandAsync($"getnetworkhashps {nblocks} {height}");
         }
 
-
-        public string Generate(int nblocks, int maxtries = 1000000)
+        public async Task<string> GenerateAsync(int nblocks, int maxtries = 1000000)
         {
-            return ExecuteCommand($"generate {nblocks} {maxtries}");
+            return await ExecuteCommandAsync($"generate {nblocks} {maxtries}");
         }
 
-
-        public string GenerateToAddress(int nblocks, string address, int maxtries = 1000000)
+        public async Task<string> GenerateToAddressAsync(int nblocks, string address, int maxtries = 1000000)
         {
-            return ExecuteCommand($"generatetoaddress {nblocks} \"{address}\" {maxtries}");
+            return await ExecuteCommandAsync($"generatetoaddress {nblocks} \"{address}\" {maxtries}");
         }
 
-
-        public string GetInfo()
+        public async Task<string> GetInfoAsync()
         {
-            return ExecuteCommand("getinfo");
+            return await ExecuteCommandAsync("getinfo");
         }
 
-
-        public string Uptime()
+        public async Task<string> UptimeAsync()
         {
-            return ExecuteCommand("uptime");
+            return await ExecuteCommandAsync("uptime");
         }
 
-
-        public string GetNewAddress(string account = "")
+        public async Task<string> GetNewAddressAsync(string account = "")
         {
-            return ExecuteCommand($"getnewaddress \"{account}\"");
+            return await ExecuteCommandAsync($"getnewaddress \"{account}\"");
         }
-
-    
-
     }
 }

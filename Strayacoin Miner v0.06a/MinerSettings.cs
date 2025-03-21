@@ -8,12 +8,24 @@ using Newtonsoft.Json;
 
 namespace Strayacoin_Miner_v0._06a
 {
-    public class StrayacoinConfig
+    public class MinerSettings
     {
+
+
+        /// <summary>
+        /// Check if the miner setup has been completed
+        /// </summary>
+        public bool SetupCompleted { get; set; } = false;
+
         /// <summary>
         /// DeviceID - [String] - [Identifier for the device]
         /// </summary>
         public string DeviceID { get; set; }
+
+        /// <summary>
+        /// DeviceID - [String] - [Identifier for the device]
+        /// </summary>
+        public bool ShowWelcomeMessage { get; set; } = true;
 
         /// <summary>
         /// MaxAvailableCores - [int] - [Maximum number of cores available on the device]
@@ -24,6 +36,11 @@ namespace Strayacoin_Miner_v0._06a
         /// MaxCoresAllowed - [int] - [Maximum number of cores allowed to be used by the miner, this connot be changed while running]
         /// </summary>
         public int MaxCoresAllowed { get; set; }
+
+        /// <summary>
+        /// MaxCoresAllowed - [int] - [How often (in seconds) to output information to the screen]
+        /// </summary>
+        public int MiningOutputInterval { get; set; } = 3000;
 
         /// <summary>
         /// WalletInstallDirectory - [String] - [Path to the Wallet Installation folder]
@@ -49,7 +66,12 @@ namespace Strayacoin_Miner_v0._06a
         /// ConfigFile_User - [String] - [Path to the User Configuration File]
         /// </summary>
         public string ConfigFile_User { get; set; }
-        
+
+        /// <summary>
+        /// ConfigFile_User - [String] - [Path to the User Configuration File]
+        /// </summary>
+        public bool UseVisualBlockIndicator { get; set; }
+
         /// <summary>
         /// PaymentAddress
         /// string - Wallet Address to receive payments from mining
@@ -174,17 +196,13 @@ namespace Strayacoin_Miner_v0._06a
         /// </summary>
         public int OutputRefreshRate { get; set; } = 100;           // Refresh Rate for the Console Output (in milliseconds)
 
-       
-        private const string MinerSettingsFileName = "MinerSettings.json";
-
-
         /// <summary>
-        /// CheckJson - [bool] - [Check if the JSON file exists, if it does not it create one, returns 'false' if one is created]
+        /// CheckJson - [bool] - [Check if the JSON file exists, if it does not it creates one, returns 'false' if one is created, returns 'true' if the file exists and loads the settings]
         /// </summary>
         public bool CheckJson()
         {
             string settingsDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Miner Settings");
-            string settingsFilePath = Path.Combine(settingsDirectory, MinerSettingsFileName);
+            string settingsFilePath = Path.Combine(settingsDirectory, "MinerSettings.json");
 
             if (!Directory.Exists(settingsDirectory))
             {
@@ -207,7 +225,7 @@ namespace Strayacoin_Miner_v0._06a
         {
             if (filePath == null)
             {
-                filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Miner Settings", MinerSettingsFileName);
+                filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Miner Settings", "MinerSettings.json");
             }
             var json = JsonConvert.SerializeObject(this, Formatting.Indented);
             File.WriteAllText(filePath, json);
@@ -217,7 +235,7 @@ namespace Strayacoin_Miner_v0._06a
         {
             if (filePath == null)
             {
-                filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Miner Settings", MinerSettingsFileName);
+                filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Miner Settings", "MinerSettings.json");
             }
             if (File.Exists(filePath))
             {
@@ -226,17 +244,17 @@ namespace Strayacoin_Miner_v0._06a
             }
         }
 
-        public bool EvaluateSettings(string minerSettings)
+        public async Task<bool> AutoEvaluateSettingsAsync(string minerSettingsJson)
         {
             string settingsDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Miner Settings");
-            string settingsFilePath = Path.Combine(settingsDirectory, MinerSettingsFileName);
+            string settingsFilePath = Path.Combine(settingsDirectory, "MinerSettings.json");
 
             if (!File.Exists(settingsFilePath))
             {
                 return false;
             }
 
-            StrayacoinConfig settings = JsonConvert.DeserializeObject<StrayacoinConfig>(minerSettings);
+            MinerSettings settings = JsonConvert.DeserializeObject<MinerSettings>(minerSettingsJson);
             SettingsEvaluator evaluator = new SettingsEvaluator();
 
             foreach (var property in settings.GetType().GetProperties())
@@ -244,8 +262,8 @@ namespace Strayacoin_Miner_v0._06a
                 var propertyName = property.Name;
                 var propertyValue = property.GetValue(settings);
 
-                // Use the generic Evaluate method
-                var result = evaluator.Evaluate<object>(propertyName, propertyValue);
+                // Use the generic EvaluateAsync method
+                var result = await evaluator.EvaluateAsync<object>(propertyName, propertyValue);
 
                 // Check if the result is a boolean and if it's false
                 if (result is bool boolResult && !boolResult)

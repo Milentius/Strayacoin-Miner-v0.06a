@@ -1,7 +1,7 @@
 namespace Strayacoin_Miner_v0._06a
 {
-    
-public class SettingsEvaluator
+
+    public class SettingsEvaluator
     {
         private readonly Dictionary<string, Func<ISettingEvaluator<object>>> evaluators;
 
@@ -9,6 +9,7 @@ public class SettingsEvaluator
         {
             evaluators = new Dictionary<string, Func<ISettingEvaluator<object>>>
             {
+                { "SetupCompleted", () => new SetupCompleted() as ISettingEvaluator<object> },
                 { "WalletExecutable", () => new WalletExecutableEvaluator() as ISettingEvaluator<object> },
                 { "CliExecutable", () => new CliExecutableEvaluator() as ISettingEvaluator<object> },
                 { "ConfigFileWallet", () => new ConfigFileWalletEvaluator() as ISettingEvaluator<object> },
@@ -19,15 +20,17 @@ public class SettingsEvaluator
             };
         }
 
-        public T Evaluate<T>(string propertyName, object propertyValue)
+        public async Task<T> EvaluateAsync<T>(string propertyName, object propertyValue)
         {
             if (evaluators.TryGetValue(propertyName, out var evaluatorFactory))
             {
                 var evaluator = evaluatorFactory();
-                return (T)evaluator.Evaluate(propertyValue);
+                var result = await evaluator.EvaluateAsync(propertyValue);
+                return (T)result;
             }
             return default; // Default to the default value of T for properties without specific evaluation logic
         }
+
     }
 }
 

@@ -44,17 +44,22 @@ namespace Ascii_Table_Drawer
 
         public void DrawRow(string text, bool newLine = true)
         {
-            if (TextAlignment == "left" || TextAlignment == "Left" || TextAlignment == "l" || TextAlignment == "L")
+            switch (TextAlignment.ToLower())
             {
-                DrawRow_Left(text, newLine);
-            }
-            if (TextAlignment == "center" || TextAlignment == "Center" || TextAlignment == "c" || TextAlignment == "C")
-            {
-                DrawRow_Centered(text, newLine);
-            }
-            if (TextAlignment == "right" || TextAlignment == "Right" || TextAlignment == "r" || TextAlignment == "R")
-            {
-                DrawRow_Right(text, newLine);
+                case "left":
+                case "l":
+                    DrawRow_Left(text, newLine);
+                    break;
+                case "center":
+                case "c":
+                    DrawRow_Centered(text, newLine);
+                    break;
+                case "right":
+                case "r":
+                    DrawRow_Right(text, newLine);
+                    break;
+                default:
+                    throw new ArgumentException("Invalid text alignment value.");
             }
         }
 
@@ -95,15 +100,15 @@ namespace Ascii_Table_Drawer
             Console.ResetColor();
         }
 
-        public void DrawRow_Right(string text,bool newLine)
+        public void DrawRow_Right(string text, bool newLine)
         {
             // Calculate the right padding needed to right-align the text
             int textLength = text.Length;
             int totalTextSpace = TableWidth - 4 - Padding * 2; // Total space available for text
-            int rightPadding = totalTextSpace - textLength; // Padding needed to push text to the right
+            int leftPadding = totalTextSpace - textLength; // Padding needed to push text to the right
 
-            // Ensure rightPadding is not negative
-            rightPadding = Math.Max(0, rightPadding);
+            // Ensure leftPadding is not negative
+            leftPadding = Math.Max(0, leftPadding);
 
             // Draw left border in border color
             Console.ForegroundColor = BorderColor;
@@ -111,60 +116,62 @@ namespace Ascii_Table_Drawer
 
             // Draw left padding, then text, in text color
             Console.ForegroundColor = TextColor;
-            Console.Write(new string(' ', Padding + rightPadding) + text);
+            Console.Write(new string(' ', Padding + leftPadding) + text + new string(' ', Padding));
 
             // Draw right border in border color and move to next line
             Console.ForegroundColor = BorderColor;
             if (newLine)
             {
                 Console.WriteLine(" █");
-
             }
             else
             {
                 Console.Write(" █");
-
             }
             Console.ResetColor();
         }
 
 
-        public void DrawRow_Centered(string text,bool newLine)
+        public void DrawRow_Centered(string text, bool newLine)
         {
             // Calculate the space needed to center the text within the table width
-            int totalPadding = TableWidth - 2 - text.Length; // 2 accounts for the left and right border characters
-            int leftPadding = totalPadding / 2;
-            int rightPadding = totalPadding - leftPadding;
+            int totalTextSpace = TableWidth - 4 - Padding * 2; // Total space available for text
+            int textLength = text.Length;
+            int leftPadding = (totalTextSpace - textLength) / 2;
+            int rightPadding = totalTextSpace - textLength - leftPadding;
 
             // Ensure that the combined length of text and padding fits exactly within the table width
-            if ((text.Length + leftPadding + rightPadding + 2) < TableWidth)
+            if ((textLength + leftPadding + rightPadding + 4) < TableWidth)
             {
-                rightPadding += TableWidth - (text.Length + leftPadding + rightPadding + 2);
+                rightPadding += TableWidth - (textLength + leftPadding + rightPadding + 4);
             }
 
             // Draw left border in border color
             Console.ForegroundColor = BorderColor;
-            Console.Write("█");
+            Console.Write("█ ");
 
             // Draw left padding and text in text color
             Console.ForegroundColor = TextColor;
-            Console.Write(new string(' ', leftPadding) + text);
-
-            // Draw right padding in text color (to ensure consistent background color)
-            Console.Write(new string(' ', rightPadding));
+            Console.Write(new string(' ', Padding + leftPadding) + text + new string(' ', Padding + rightPadding));
 
             // Draw right border in border color and move to next line
             Console.ForegroundColor = BorderColor;
-            if(newLine)
+            if (newLine)
             {
-                Console.WriteLine("█");
-
+                Console.WriteLine(" █");
             }
             else
             {
-                Console.Write("█");
+                Console.Write(" █");
             }
             Console.ResetColor();
+        }
+
+        public void DrawHeading(string optionText, bool newLine)
+        {
+            DrawEmptyRow(newLine); // Draws an empty row above the option text
+            DrawRow_Centered(optionText, newLine); // Draws the row with the option text
+            DrawEmptyRow(newLine); // Draws an empty row below the option text
         }
 
         public void DrawEmptyRow(bool newLine)
@@ -176,7 +183,7 @@ namespace Ascii_Table_Drawer
         {
             WriteInColor('█' + new string('█', TableWidth - 2) + '█', BorderColor, newLine);
         }
-
+        
         
         public void DrawUpperSeparator(bool newLine)
         {
@@ -188,10 +195,8 @@ namespace Ascii_Table_Drawer
             WriteInColor('█' + new string('▄', TableWidth - 2) + '█', BorderColor, newLine);
         }
 
-        public string GetUserInput(string prompt,bool newLine)
+        public string GetUserInput(string prompt, bool newLine)
         {
-            //DrawTopBorder();
-
             // Draw left border and prompt
             Console.ForegroundColor = BorderColor;
             Console.Write("█ ");
@@ -204,12 +209,12 @@ namespace Ascii_Table_Drawer
             int cursorTop = Console.CursorTop;
 
             // Read user input on the same line as the prompt
-            string userInput = Console.ReadLine();
+            string userInput = Console.ReadLine() ?? string.Empty;
 
             // Calculate the remaining space and fill it with spaces
             int usedSpace = cursorLeft + userInput.Length - 2; // 2 for left border and space
             int remainingSpace = TableWidth - usedSpace - 3; // 3 for right border and space
-            string filler = new string(' ', remainingSpace);
+            string filler = new string(' ', Math.Max(0, remainingSpace));
 
             // Move the cursor back to the end of user input and draw the filler and right border
             Console.SetCursorPosition(cursorLeft + userInput.Length, cursorTop);
@@ -218,7 +223,6 @@ namespace Ascii_Table_Drawer
             if (newLine)
             {
                 Console.WriteLine("█");
-
             }
             else
             {
@@ -226,15 +230,58 @@ namespace Ascii_Table_Drawer
             }
             Console.ResetColor();
 
-            //DrawBottomHalfOfBox();
             return userInput;
         }
 
-        public void DrawHeading(string optionText,bool newLine)
+        public string GetMaskedUserInput(string leftContent, string prompt, string maskCharacter = "*", bool newLine = true, int barIndex = 4)
         {
-            DrawEmptyRow(newLine); // Draws an empty row above the option text
-            DrawRow_Centered(optionText, newLine); // Draws the row with the option text
-            DrawEmptyRow(newLine); // Draws an empty row below the option text
+            // Calculate space for left content and vertical bar
+            int leftSpace = barIndex - 1;
+
+            // Draw left border and left content
+            Console.ForegroundColor = BorderColor;
+            Console.Write("█ ");
+            Console.ForegroundColor = TextColor;
+            Console.Write(leftContent.PadRight(leftSpace - 2));
+
+            // Draw vertical bar
+            Console.ForegroundColor = BorderColor;
+            Console.Write(" █ ");
+
+            // Write prompt
+            Console.ForegroundColor = TextColor;
+            Console.Write(new string(' ', Padding) + prompt);
+            Console.ResetColor();
+
+            // Start reading the password
+            StringBuilder password = new StringBuilder();
+            ConsoleKeyInfo key;
+            do
+            {
+                key = Console.ReadKey(true);
+
+                // Add character to password or handle backspace
+                if (char.IsLetterOrDigit(key.KeyChar) || char.IsSymbol(key.KeyChar) || char.IsPunctuation(key.KeyChar))
+                {
+                    password.Append(key.KeyChar);
+                    Console.Write(maskCharacter);
+                }
+                else if (key.Key == ConsoleKey.Backspace && password.Length > 0)
+                {
+                    password.Remove(password.Length - 1, 1);
+                    Console.Write("\b \b"); // Erase the last asterisk from the console
+                }
+            } while (key.Key != ConsoleKey.Enter);
+
+            // End the row and draw bottom border
+            int remainingSpace = TableWidth - Console.CursorLeft - 1;
+            Console.Write(new string(' ', remainingSpace) + "█");
+            if (newLine)
+            {
+                Console.WriteLine();
+            }
+
+            return password.ToString();
         }
 
         public string GetUserInputWithBar(string leftContent, string prompt, bool newLine = true, int barIndex = 4)
@@ -258,27 +305,26 @@ namespace Ascii_Table_Drawer
             Console.ResetColor();
 
             int startInputCursorLeft = Console.CursorLeft;
+            int cursorTop = Console.CursorTop;
 
             // Read user input
-            string userInput = Console.ReadLine();
+            string userInput = Console.ReadLine() ?? string.Empty;
 
             // Calculate remaining space and draw filler and right border
-            int usedSpace = startInputCursorLeft + userInput.Length - leftSpace - 3; // Adjust for left content and borders
-            int remainingSpace = TableWidth - usedSpace - 7; // 3 for right border and space
+            int usedSpace = startInputCursorLeft + userInput.Length - 2; // Adjust for left content and borders
+            int remainingSpace = TableWidth - usedSpace - 3; // 3 for right border and space
             string filler = new string(' ', Math.Max(0, remainingSpace));
 
-            Console.SetCursorPosition(startInputCursorLeft + userInput.Length, Console.CursorTop - 1);
+            Console.SetCursorPosition(startInputCursorLeft + userInput.Length, cursorTop);
             Console.Write(filler);
             Console.ForegroundColor = BorderColor;
             if (newLine)
             {
                 Console.WriteLine("█");
-
             }
             else
             {
                 Console.Write("█");
-
             }
             Console.ResetColor();
 
@@ -295,7 +341,7 @@ namespace Ascii_Table_Drawer
             DrawSeparatorWithBar('▄', barPosition);
         }
 
-        public void DrawRowWithBar(string leftContent, ConsoleColor leftContentColor, string text, int barIndex = 4,bool newLine = true)
+        public void DrawRowWithBar(string leftContent, ConsoleColor leftContentColor, string text, int barIndex = 4, bool newLine = true)
         {
             // Adjust barIndex to zero-based index
             int zeroBasedBarIndex = barIndex - 1;
@@ -325,12 +371,10 @@ namespace Ascii_Table_Drawer
             if (newLine)
             {
                 Console.WriteLine(new string(' ', Padding) + "█");
-
             }
             else
             {
                 Console.Write(new string(' ', Padding) + "█");
-
             }
             Console.ResetColor();
         }
@@ -350,10 +394,8 @@ namespace Ascii_Table_Drawer
                 throw new ArgumentException("Total must be greater than 0.", nameof(total));
             }
 
-            if (progress < 0 || progress > total)
-            {
-                throw new ArgumentException("Progress must be between 0 and total.", nameof(progress));
-            }
+            // Ensure progress is within the valid range
+            progress = Math.Max(0, Math.Min(progress, total));
 
             // Calculate the width of the progress bar
             int totalBlocks = Math.Max(0, TableWidth - 4);  // Subtract 4 in advance to align, ensuring it's not negative
@@ -377,7 +419,7 @@ namespace Ascii_Table_Drawer
             DrawProgressWithColor(progressBarText, TextColor, newLine);  // This is a method to draw rows with specific colors
         }
 
-        private void DrawProgressWithColor(string text, ConsoleColor barColor,bool newLine)
+        private void DrawProgressWithColor(string text, ConsoleColor barColor, bool newLine)
         {
             Console.ForegroundColor = BorderColor;
             Console.Write("█ ");
@@ -387,71 +429,12 @@ namespace Ascii_Table_Drawer
             if (newLine)
             {
                 Console.WriteLine(" █");
-
             }
             else
             {
                 Console.Write(" █");
-
             }
             Console.ResetColor();
-        }
-
-        public string GetMaskedUserInput(string leftContent, string prompt, string MaskCharacter = "*",bool newLine = true, int barIndex = 4)
-        {
-            //DrawTopBorder();
-
-            // Calculate space for left content and vertical bar
-            int leftSpace = barIndex - 1;
-
-            // Draw left border and left content
-            Console.ForegroundColor = BorderColor;
-            Console.Write("█ ");
-            Console.ForegroundColor = TextColor;
-            Console.Write(leftContent.PadRight(leftSpace - 2));
-
-            // Draw vertical bar
-            Console.ForegroundColor = BorderColor;
-            Console.Write(" █ ");
-
-            // Write prompt
-            Console.ForegroundColor = TextColor;
-            Console.Write(new string(' ', Padding) + prompt);
-            Console.ResetColor();
-
-            // Start reading the password
-            string password = "";
-            ConsoleKeyInfo key;
-            do
-            {
-                key = Console.ReadKey(true);
-
-                // Add character to password or handle backspace
-                if (char.IsLetterOrDigit(key.KeyChar) || char.IsSymbol(key.KeyChar) || char.IsPunctuation(key.KeyChar))
-                {
-                    password += key.KeyChar;
-                    //Console.Write("*");
-                    Console.Write(MaskCharacter);
-                }
-                else if (key.Key == ConsoleKey.Backspace && password.Length > 0)
-                {
-                    password = password.Substring(0, password.Length - 1);
-                    Console.Write("\b \b"); // Erase the last asterisk from the console
-                }
-            } while (key.Key != ConsoleKey.Enter);
-
-            // End the row and draw bottom border
-            int remainingSpace = TableWidth - Console.CursorLeft - 1;
-            Console.Write(new string(' ', remainingSpace) + "█");
-            if (newLine)
-            {
-                Console.WriteLine();
-
-            }
-            
-            //DrawBottomBorder();
-
-            return password;
         }
 
         // draw a list of options to display to the user
@@ -737,5 +720,115 @@ namespace Ascii_Table_Drawer
             Console.ResetColor();
         }
 
+
+        public void DrawVisualBlockIndicator(List<BlockStatus> line1BlockStatuses, List<BlockStatus> line2BlockStatuses, List<BlockStatus> line3BlockStatuses)
+        {
+            // Draw the top border
+            //DrawTopBorder(true);
+
+            // Draw the first row of blocks
+            Console.ForegroundColor = BorderColor;
+            Console.Write("█ ");
+            foreach (var blockStatus in line1BlockStatuses)
+            {
+                switch (blockStatus.Status)
+                {
+                    case BlockStatusType.MinedNoTransaction:
+                        Console.ForegroundColor = BorderColor;
+                        break;
+                    case BlockStatusType.Transaction0Confirmations:
+                        Console.ForegroundColor = ConsoleColor.DarkYellow; // Orange
+                        break;
+                    case BlockStatusType.Transaction1Confirmation:
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        break;
+                    case BlockStatusType.Transaction2Confirmations:
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        break;
+                }
+                Console.Write("█ ");
+            }
+            Console.ForegroundColor = BorderColor;
+            Console.Write(new string(' ', TableWidth - 3 - line1BlockStatuses.Count * 2) + "█");
+            Console.WriteLine();
+
+            // seperate the lines vertically so they dont appear as one long line
+            DrawEmptyRow(true);
+
+            // Draw the Second row of blocks
+            Console.ForegroundColor = BorderColor;
+            Console.Write("█ ");
+            foreach (var blockStatus in line2BlockStatuses)
+            {
+                switch (blockStatus.Status)
+                {
+                    case BlockStatusType.MinedNoTransaction:
+                        Console.ForegroundColor = BorderColor;
+                        break;
+                    case BlockStatusType.Transaction0Confirmations:
+                        Console.ForegroundColor = ConsoleColor.DarkYellow; // Orange
+                        break;
+                    case BlockStatusType.Transaction1Confirmation:
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        break;
+                    case BlockStatusType.Transaction2Confirmations:
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        break;
+                }
+                Console.Write("█ ");
+            }
+            Console.ForegroundColor = BorderColor;
+            Console.Write(new string(' ', TableWidth - 3 - line2BlockStatuses.Count * 2) + "█");
+            Console.WriteLine();
+
+            // seperate the lines vertically so they dont appear as one long line
+            DrawEmptyRow(true);
+
+            // Draw the Third row of blocks
+            Console.ForegroundColor = BorderColor;
+            Console.Write("█ ");
+            foreach (var blockStatus in line3BlockStatuses)
+            {
+                switch (blockStatus.Status)
+                {
+                    case BlockStatusType.MinedNoTransaction:
+                        Console.ForegroundColor = BorderColor;
+                        break;
+                    case BlockStatusType.Transaction0Confirmations:
+                        Console.ForegroundColor = ConsoleColor.DarkYellow; // Orange
+                        break;
+                    case BlockStatusType.Transaction1Confirmation:
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        break;
+                    case BlockStatusType.Transaction2Confirmations:
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        break;
+                }
+                Console.Write("█ ");
+            }
+            Console.ForegroundColor = BorderColor;
+            Console.Write(new string(' ', TableWidth - 3 - line3BlockStatuses.Count * 2) + "█");
+            Console.WriteLine();
+            
+            // Draw the empty rows
+            //DrawEmptyRow(true);
+            //DrawEmptyRow(true);
+
+            // Draw the bottom border
+            //DrawBottomBorder(true);
+        }
+    }
+
+    public class BlockStatus
+    {
+        public BlockStatusType Status { get; set; }
+    }
+
+    public enum BlockStatusType
+    {
+        MinedNoTransaction,
+        Transaction0Confirmations,
+        Transaction1Confirmation,
+        Transaction2Confirmations
     }
 }
