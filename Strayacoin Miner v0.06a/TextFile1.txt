@@ -1,35 +1,148 @@
-﻿
-below is the text based example of visual block indicator i want to create.
-this will be a function within the AsciiTableDrawer class.
-i do not need the whole class, just the new function that aligns with the asciiTableDrawer.
-the idea is that every block we mine we will update the visual block indicator.
-if the block we mine has a transaction we will update the visual block indicator with a different color for that block.
-each time the block has matures by 1 confirmation we will update the visual block indicator with a different color for that block again.
-there will only be 4 colors for the blocks.
+﻿i would like to add the following to the ascii table drawer, there are 3 example of how it will be used below.
+these will be going into the Extras class.
 
-1. for a block mined with no transaction = Same as ATD border color
-3. for a block with a transaction and 0 confirmations = Orange
-2. for a block with a transaction and 1 confirmations = yellow
-4. for a block with a transaction and 2 confirmations = Green
+we can do it with 1 function if we pass in the width and height of the button along with the text for the button, in the case below would be 12 x 3.
 
-the visual block indicator will be updated every 10 seconds.
-this will be a setting the user can set in the StrayacoinConfig.cs file.
-
-█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
-█ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █                                       █
-█                                                                              █
-█                                                                              █
-█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
+they will vary in length.
 
 
-ok 2 issues.
-1. the line with the blocks on it is working fine but the border is offset by 1 space to the right.
-2. there is 2 empty lines, we need to fill up to 3 bars, if we hardcode 2 empty rows we will not be able to update when the top row is finished.
+Thin
+▄▬▬▬▬▬▬▬▬▬▬▄
+▌          ▐
+▀▬▬▬▬▬▬▬▬▬▬▀
+
+Thick
+▄▀▀▀▀▀▀▀▀▀▀▄
+█          █
+▀▄▄▄▄▄▄▄▄▄▄▀
 
 
-example of the border issue.
-█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
-█ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █ █                                       █
-█                                                                              █
-█                                                                              █
-█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
+█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+▀█                                           Strayacoin Miner v0.06a                                         █▀
+ █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
+▄█                                                                                                           █▄
+█                                                                                                             █
+█                             First Run Detected - Checking Files... Please Wait                              █
+█                                                                                                             █
+█                                                                                                             █
+█                                                                                                             █
+█                             Use the Arrow keys and Enter to Navigate and Select                             █
+█                                                                                                             █
+█                                                                                                             █
+█                                                                                                             █
+█                                                                                                             █
+█                                                                                                             █
+█                                                                                                             █
+█                                                                                                             █
+█                                                                                                             █
+█                                                                                                             █
+█   ▄▬▬▬▬▬▬▬▬▬▬▄                                                                               ▄▬▬▬▬▬▬▬▬▬▬▄   █
+█   ▌   QUIT   ▐                                                                               ▌   NEXT   ▐   █
+█   ▀▬▬▬▬▬▬▬▬▬▬▀                                                                               ▀▬▬▬▬▬▬▬▬▬▬▀   █
+▀█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█▀
+
+
+
+█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+▀█                                           Strayacoin Miner v0.06a                                         █▀
+ █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
+▄█                                                                                                           █▄
+█                               The miner needs access to the Strayacoin Wallet                               █
+█                             Use the Arrow keys and Enter to Navigate and Select                             █
+█                                                                                                             █
+█                                                                                                             █
+█                          Please enter the location of the Wallet, or Browse for it.                         █
+█                                                                                                             █
+█    █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█   ▄▬▬▬▬▬▬▬▬▬▬▄   █
+█    █                                                                                     █   ▌  Browse  ▐   █
+█    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█   ▀▬▬▬▬▬▬▬▬▬▬▀   █
+█                                                                                                             █
+█                                                                                                             █
+█                                                                                                             █
+█                                                                                                             █
+█   ▄▬▬▬▬▬▬▬▬▬▬▄                                   ▄▬▬▬▬▬▬▬▬▬▬▬▄                ▄▬▬▬▬▬▬▬▬▬▬▄   ▄▬▬▬▬▬▬▬▬▬▬▄   █
+█   ▌   BACK   ▐                                   ▌  DEFAULTS ▐                ▌  INSTALL ▐   ▌   NEXT   ▐   █
+█   ▀▬▬▬▬▬▬▬▬▬▬▀                                   ▀▬▬▬▬▬▬▬▬▬▬▬▀                ▀▬▬▬▬▬▬▬▬▬▬▀   ▀▬▬▬▬▬▬▬▬▬▬▀   █
+▀█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█▀
+
+
+
+
+█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+▀█                                           Strayacoin Miner v0.06a                                         █▀
+ █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
+▄█                                                                                                           █▄
+█                                                                                                             █
+█                               The miner needs access to the Strayacoin Wallet                               █
+█                             Use the Arrow keys and Enter to Navigate and Select                             █
+█                    Shift + Right Arrow will take you to the next button When you are done                   █
+█                                                                                                             █
+█                          Select the number of Physical Cores to use for Mining                              █
+█                                                ┌───┬───┬───┬───┐                                            █
+█                                                │ 1 │ 2 │ 3 │ 4 │                                            █
+█                                                ├───┼───┼───┼───┤                                            █
+█                                                │ 5 │ 6 │ 7 │ 8 │                                            █
+█                                                ├───┴───┴───┴───┤                                            █
+█                                                │      All      │                                            █
+█                                                └───────────────┘                                            █
+█                                                                                                             █
+█   ▄▬▬▬▬▬▬▬▬▬▬▄                                   ▄▬▬▬▬▬▬▬▬▬▬▬▄                               ▄▬▬▬▬▬▬▬▬▬▬▄   █
+█   ▌   BACK   ▐                                   ▌  DEFAULTS ▐                               ▌   NEXT   ▐   █
+█   ▀▬▬▬▬▬▬▬▬▬▬▀                                   ▀▬▬▬▬▬▬▬▬▬▬▬▀                               ▀▬▬▬▬▬▬▬▬▬▬▀   █
+▀█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█▀
+
+
+
+
+█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+▀█                                           Strayacoin Miner v0.06a                                         █▀
+ █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
+▄█                                                                                                           █▄
+█                                                                                                             █
+█                               The miner needs access to the Strayacoin Wallet                               █
+█                             Use the Arrow keys and Enter to Navigate and Select                             █
+█                    Shift + Right Arrow will take you to the next button When you are done                   █
+█                                                                                                             █
+█                          Select the number of Physical Cores to use for Mining                              █
+█                                                ┌───┬───┬───┬───┐                                            █
+█                                                │ 1 │ 2 │ 3 │ 4 │                                            █
+█                                                ├───┼───┼───┼───┤                                            █
+█                                                │ 5 │ 6 │ 7 │ 8 │                                            █
+█                                                ├───┴───┴───┴───┤                                            █
+█                                                │      All      │                                            █
+█                                                └───────────────┘                                            █
+█                                                                                                             █
+█   ▄▬▬▬▬▬▬▬▬▬▬▄                                   ▄▬▬▬▬▬▬▬▬▬▬▬▄                               ▄▬▬▬▬▬▬▬▬▬▬▄   █
+█   ▌   BACK   ▐                                   ▌  DEFAULTS ▐                               ▌   NEXT   ▐   █
+█   ▀▬▬▬▬▬▬▬▬▬▬▀                                   ▀▬▬▬▬▬▬▬▬▬▬▬▀                               ▀▬▬▬▬▬▬▬▬▬▬▀   █
+▀█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█▀
+
+
+
+
+
+
+
+
+
+┌───┬───┬───┐
+│   │   │   │
+├───┼───┼───┤
+│   │   │   │
+├───┼───┼───┤
+│   │   │   │
+└───┴───┴───┘
+
+
+
+▄▬▬▬▬▬▬▬▬▬▬▄ ▄▬▬▬▬▬▬▬▬▬▬▄ ▄▬▬▬▬▬▬▬▬▬▬▄ ▄▬▬▬▬▬▬▬▬▬▬▄ ▄▬▬▬▬▬▬▬▬▬▬▄ ▄▬▬▬▬▬▬▬▬▬▬▄ ▄▬▬▬▬▬▬▬▬▬▬▄ ▄▬▬▬▬▬▬▬▬▬▬▄
+▌   MINE   ▐ ▌   STOP   ▐ ▌ SETTINGS ▐ ▌   PAUSE  ▐ ▌   STATS  ▐ ▌   INFO   ▐ ▌   BACK   ▐ ▌   NEXT   ▐
+▀▬▬▬▬▬▬▬▬▬▬▀ ▀▬▬▬▬▬▬▬▬▬▬▀ ▀▬▬▬▬▬▬▬▬▬▬▀ ▀▬▬▬▬▬▬▬▬▬▬▀ ▀▬▬▬▬▬▬▬▬▬▬▀ ▀▬▬▬▬▬▬▬▬▬▬▀ ▀▬▬▬▬▬▬▬▬▬▬▀ ▀▬▬▬▬▬▬▬▬▬▬▀
+
+▄▬▬▬▬▬▬▬▬▬▬▄ ▄▬▬▬▬▬▬▬▬▬▬▬▄ 
+▌   MODE   ▐ ▌  UI MODE  ▐ 
+▀▬▬▬▬▬▬▬▬▬▬▀ ▀▬▬▬▬▬▬▬▬▬▬▬▀ 
+
+▄▬▬▬▬▬▬▬▬▬▬▬▬▬▄ ▄▬▬▬▬▬▬▬▬▬▬▬▬▬▄
+▌ PERFORMANCE ▐ ▌  EFFICIENCY ▐
+▀▬▬▬▬▬▬▬▬▬▬▬▬▬▀ ▀▬▬▬▬▬▬▬▬▬▬▬▬▬▀

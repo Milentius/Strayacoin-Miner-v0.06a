@@ -8,6 +8,12 @@ namespace Strayacoin_Miner_v0._06a
 {
     class InputManager
     {
+        private readonly UI_Renderer uir;
+
+        public InputManager(UI_Renderer UIR)
+        {
+            uir = UIR;
+        }
         // Method to read input from the console
         public string ReadInput()
         {

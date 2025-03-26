@@ -1,6 +1,4 @@
-﻿using Ascii_Table_Drawer;
-using File_Browser;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -76,125 +74,12 @@ namespace Strayacoin_Miner_v0._06a
                 Console.WriteLine(@"                                                                                                                                          ");
                 Thread.Sleep(4000);
                 Console.SetWindowSize(150, 34);
-                // Implementation of InitMessage1
-                //Console.Clear();
-                //atd.DrawTopBorder(true);
-                //atd.DrawHeading("Strayacoin Miner v0.06a", true);
-                //atd.DrawHeading("Welcome to Strayacoin Miner", true);
-                //atd.DrawHeading("Starting Up: Checking Config", true);
-                //atd.DrawBottomBorder(true);
-                //atd.DrawTopBorder(true);
-                //atd.DisplayProgressBar(1,20,true);
-                //atd.DrawTopBorder(true);
-                //Thread.Sleep(300);
             }
 
             public static void Init_HomePage()
             {
 
 
-
-                // this shows if the setup is complete and we do not have to check anything else.
-                Console.Clear();
-                atd.DrawTopBorder(true);
-                atd.DrawHeading("Strayacoin Miner v0.06a", true);
-                atd.DrawHeading("Welcome to Strayacoin Miner", true);
-                atd.DrawHeading("Starting Up: Setup Complete, Starting Miner...", true);
-                atd.DrawBottomBorder(true);
-                atd.DrawTopBorder(true);
-                atd.DisplayProgressBar(2, 20, true);
-                atd.DrawTopBorder(true);
-                Thread.Sleep(200);
-            }
-
-            public static void Init_MaxCoresAvailable()
-            {
-                // Implementation of InitMessage1
-                Console.Clear();
-                atd.DrawTopBorder(true);
-                atd.DrawHeading("Strayacoin Miner v0.06a", true);
-                atd.DrawHeading("Welcome to Strayacoin Miner", true);
-                atd.DrawHeading("Checking Setting: Max Cores Available", true);
-                atd.DrawBottomBorder(true);
-                atd.DrawTopBorder(true);
-                atd.DisplayProgressBar(3, 20, true);
-                atd.DrawTopBorder(true);
-                Thread.Sleep(600);
-            }
-
-            public static void Init_MiningCoresAllowed()
-            {
-                // Implementation of InitMessage1
-                Console.Clear();
-                atd.DrawTopBorder(true);
-                atd.DrawHeading("Strayacoin Miner v0.06a", true);
-                atd.DrawHeading("Welcome to Strayacoin Miner", true);
-                atd.DrawHeading("Starting Up: Max Cores Allowed", true);
-                atd.DrawBottomBorder(true);
-                atd.DrawTopBorder(true);
-                atd.DisplayProgressBar(4, 20, true);
-                atd.DrawTopBorder(true);
-                Thread.Sleep(1000);
-            }
-
-            public static void Init_WalletExecutable()
-            {
-                // Implementation of InitMessage2
-                Console.Clear();
-                atd.DrawTopBorder(true);
-                atd.DrawHeading("Strayacoin Miner v0.06a", true);
-                atd.DrawHeading("Welcome to Strayacoin Miner", true);
-                atd.DrawHeading("Starting Up: Wallet Executable", true);
-                atd.DrawBottomBorder(true);
-                atd.DrawTopBorder(true);
-                atd.DisplayProgressBar(5, 20, true);
-                atd.DrawTopBorder(true);
-                Thread.Sleep(300);
-            }
-
-            public static void Init_CliExecutable()
-            {
-                // Implementation of InitMessage3
-                Console.Clear();
-                atd.DrawTopBorder(true);
-                atd.DrawHeading("Strayacoin Miner v0.06a", true);
-                atd.DrawHeading("Welcome to Strayacoin Miner", true);
-                atd.DrawHeading("Starting Up: CLI Executable", true);
-                atd.DrawBottomBorder(true);
-                atd.DrawTopBorder(true);
-                atd.DisplayProgressBar(6, 20, true);
-                atd.DrawTopBorder(true);
-                Thread.Sleep(300);
-            }
-
-            public static void Init_ConfigFile_Wallet()
-            {
-                // Implementation of InitMessage4
-                Console.Clear();
-                atd.DrawTopBorder(true);
-                atd.DrawHeading("Strayacoin Miner v0.06a", true);
-                atd.DrawHeading("Welcome to Strayacoin Miner", true);
-                atd.DrawHeading("Starting Up: Checking Wallet Config", true);
-                atd.DrawBottomBorder(true);
-                atd.DrawTopBorder(true);
-                atd.DisplayProgressBar(7, 20, true);
-                atd.DrawTopBorder(true);
-                Thread.Sleep(300);
-            }
-
-            public static void Init_ConfigFile_User()
-            {
-                // Implementation of InitMessage5
-                Console.Clear();
-                atd.DrawTopBorder(true);
-                atd.DrawHeading("Strayacoin Miner v0.06a", true);
-                atd.DrawHeading("Welcome to Strayacoin Miner", true);
-                atd.DrawHeading("Starting Up: Checking User Config", true);
-                atd.DrawBottomBorder(true);
-                atd.DrawTopBorder(true);
-                atd.DisplayProgressBar(8, 20, true);
-                atd.DrawTopBorder(true);
-                Thread.Sleep(300);
             }
             // Add more methods as needed
         }
@@ -238,17 +123,28 @@ namespace Strayacoin_Miner_v0._06a
             {
                 // we will have a way to retrive the current setting from the MinerSettings file and a way to update the MinerSettings file
                 
-                Console.Clear();
-                atd.DrawTopBorder(true);
-                atd.DrawHeading("Strayacoin Miner v0.06a", true);
-                atd.DrawBottomBorder(true);
-                atd.DrawTopBorder(true);
-                atd.DrawRow_Centered($"Allowed Cores updated from {CurrentSetting} to {NewSetting}", true);
-                atd.DrawRow_Centered("This will come into effect on the next block", true);
-                atd.DrawBottomBorder(true);
+
             }
 
+            public static void TabBrowser_Page1()
+            {
+                // Implementation of TabBrowser_Page1
+                Console.WriteLine("TabBrowser_Page1 called");
 
+
+            }
+
+            public static void TabBrowser_Page2()
+            {
+                // Implementation of TabBrowser_Page1
+                Console.WriteLine("TabBrowser_Page2 called");
+            }
+
+            public static void TabBrowser_Page3()
+            {
+                // Implementation of TabBrowser_Page1
+                Console.WriteLine("TabBrowser_Page3 called");
+            }
 
             // Add more methods as needed
         }
@@ -268,6 +164,12 @@ namespace Strayacoin_Miner_v0._06a
             {
                 // Implementation of InstallationMessage1
                 Console.WriteLine("InstallationMessage1 called");
+            }
+
+            public static void InstallationMessage2()
+            {
+                // Implementation of InstallationMessage1
+                Console.WriteLine("InstallationMessage2 called");
             }
 
 
@@ -310,16 +212,16 @@ namespace Strayacoin_Miner_v0._06a
 
             public static void AutomaticInstall()
             {
-                Console.Clear();
-                atd.DrawTopBorder(true);
-                atd.DrawHeading("Strayacoin Miner v0.06a", true);
-                atd.DrawRow_Centered("Automatic Installation", true);
-                atd.DrawBottomBorder(true);
-                atd.DrawTopBorder(true);
-                atd.DisplayProgressBar(0,100, true);
-                atd.DrawRow_Centered("", true);
-                atd.DrawRow_Centered("", true);
-                atd.DrawBottomBorder(true);
+                //Console.Clear();
+                //atd.StandardDrawer.DrawTopBorder();
+                //atd.DrawHeading("Strayacoin Miner v0.06a", true);
+                //atd.DrawRow_Centered("Automatic Installation", true);
+                //atd.StandardDrawer.DrawBottomBorder();
+                //atd.StandardDrawer.DrawTopBorder();
+                //atd.DisplayProgressBar(0,100, true);
+                //atd.DrawRow_Centered("", true);
+                //atd.DrawRow_Centered("", true);
+                //atd.StandardDrawer.DrawBottomBorder();
             }
             // Add more methods as needed
         }

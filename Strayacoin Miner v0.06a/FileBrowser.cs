@@ -1,11 +1,11 @@
-﻿using Ascii_Table_Drawer;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
-namespace File_Browser
+namespace Strayacoin_Miner_v0._06a
 {
     public class FileBrowser
     {
@@ -47,27 +47,29 @@ namespace File_Browser
 
         private void DrawHeadings(string[] headings)
         {
-            atd.DrawUpperSeparator(true);
+            atd.StandardDrawer.DrawTopBorder(true);
             foreach (var heading in headings)
             {
-                atd.DrawHeading(heading, true);
+                atd.StandardDrawer.DrawEmptyRow(true);
+                atd.StandardDrawer.DrawRow(heading, true);
+                atd.StandardDrawer.DrawEmptyRow(true);
             }
-            atd.DrawLowerSeparator(true);
+            atd.StandardDrawer.DrawBottomBorder(true);
         }
 
         private void DrawTopScrollIndicator(int topItemIndex, int menuItemsLength, int visibleItemsCount)
         {
-            atd.DrawUpperSeparator(true);
+            atd.StandardDrawer.DrawTopBorder(true);
             int potentialTopIndexAtBottom = menuItemsLength - (visibleItemsCount - 1);
             int effectiveTopIndex = Math.Min(topItemIndex, potentialTopIndexAtBottom);
             int topMoreItems = effectiveTopIndex;
-            atd.DrawRow(topItemIndex > 0 ? $"↑   +{topMoreItems} more items" : "- ", true);
-            atd.DrawLowerSeparator(true);
+            atd.StandardDrawer.DrawRow(topItemIndex > 0 ? $"↑   +{topMoreItems} more items" : "- ", true);
+            atd.StandardDrawer.DrawBottomBorder(true);
         }
 
         private void DrawMenuItems(string[] menuItems, int selectedItemIndex, int topItemIndex, int visibleItemsCount, int scrollbarIndicatorPosition)
         {
-            atd.DrawUpperSeparator(true);
+            atd.StandardDrawer.DrawTopBorder(true);
             for (int i = 0; i < visibleItemsCount - 2; i++)
             {
                 int itemIndex = topItemIndex + i;
@@ -78,25 +80,25 @@ namespace File_Browser
                     {
                         atd.TextColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.Cyan;
-                        atd.DrawRow($"{scrollbarIndicator} > {menuItems[itemIndex]}", true);
+                        atd.StandardDrawer.DrawRow($"{scrollbarIndicator} > {menuItems[itemIndex]}", true);
                         Console.BackgroundColor = ConsoleColor.Black;
                         atd.TextColor = ConsoleColor.Cyan;
                     }
                     else
                     {
-                        atd.DrawRow($"{scrollbarIndicator}   {menuItems[itemIndex]}", true);
+                        atd.StandardDrawer.DrawRow($"{scrollbarIndicator}   {menuItems[itemIndex]}", true);
                     }
                 }
             }
-            atd.DrawLowerSeparator(true);
+            atd.StandardDrawer.DrawBottomBorder(true);
         }
 
         private void DrawBottomScrollIndicator(int bottomItemIndex, int menuItemsLength)
         {
-            atd.DrawUpperSeparator(true);
+            atd.StandardDrawer.DrawTopBorder(true);
             int bottomMoreItems = menuItemsLength - (bottomItemIndex + 1);
-            atd.DrawRow((bottomItemIndex + 1 < menuItemsLength) ? $"↓   +{bottomMoreItems} more items" : "- ", true);
-            atd.DrawLowerSeparator(true);
+            atd.StandardDrawer.DrawRow((bottomItemIndex + 1 < menuItemsLength) ? $"↓   +{bottomMoreItems} more items" : "- ", true);
+            atd.StandardDrawer.DrawBottomBorder(true);
         }
 
         private void UpdateSelectedItemIndex(ref int selectedItemIndex, ref int topItemIndex, ConsoleKey key, int menuItemsLength, int visibleItemsCount)
@@ -161,7 +163,7 @@ namespace File_Browser
             }
         }
 
-        
+
         public static string ShowMenuWithScrolling(string[] headings, string[] infoSection, string[] menuItems, string[] returnValues)
         {
             int selectedItemIndex = 0;
@@ -172,12 +174,14 @@ namespace File_Browser
             do
             {
                 Console.Clear();
-                atd.DrawTopBorder(true);
+                atd.StandardDrawer.DrawTopBorder(true);
                 foreach (var heading in headings)
                 {
-                    atd.DrawRow(heading, true);
+                    atd.StandardDrawer.DrawEmptyRow(true);
+                    atd.StandardDrawer.DrawRow(heading, true);
+                    atd.StandardDrawer.DrawEmptyRow(true);
                 }
-                atd.DrawBottomBorder(true);
+                atd.StandardDrawer.DrawBottomBorder(true);
 
                 int bottomItemIndex = Math.Min(topItemIndex + visibleItemsCount, menuItems.Length);
 
@@ -186,16 +190,16 @@ namespace File_Browser
                     if (i == selectedItemIndex)
                     {
                         atd.TextColor = ConsoleColor.Green;
-                        atd.DrawUpperSeparatorWithBar(6);
-                        atd.DrawRowWithBar($"{i + 1}->", ConsoleColor.Green, $"{menuItems[i]}", 6);
-                        atd.DrawLowerSeparatorWithBar(6);
+                        atd.StandardDrawer.DrawTopBorder();
+                        atd.WithBarDrawer.DrawRowWithBar($"{i + 1}->", $"{menuItems[i]}");
+                        atd.StandardDrawer.DrawBottomBorder(true);
                     }
                     else
                     {
                         atd.TextColor = ConsoleColor.Red;
-                        atd.DrawUpperSeparatorWithBar(5);
-                        atd.DrawRowWithBar($"{i + 1}", ConsoleColor.Red, $"{menuItems[i]}", 5);
-                        atd.DrawLowerSeparatorWithBar(5);
+                        atd.StandardDrawer.DrawTopBorder();
+                        atd.WithBarDrawer.DrawRowWithBar($"{i + 1}", $"{menuItems[i]}");
+                        atd.StandardDrawer.DrawBottomBorder(true);
                     }
                 }
 
@@ -226,37 +230,39 @@ namespace File_Browser
             do
             {
                 Console.Clear();
-                atd.DrawUpperSeparator(true);
+                atd.StandardDrawer.DrawTopBorder(true);
                 foreach (var heading in headings)
                 {
-                    atd.DrawHeading(heading, true);
+                    atd.StandardDrawer.DrawEmptyRow(true);
+                    atd.StandardDrawer.DrawRow(heading, true);
+                    atd.StandardDrawer.DrawEmptyRow(true);
                 }
-                atd.DrawLowerSeparator(true);
+                atd.StandardDrawer.DrawBottomBorder();
 
-                atd.DrawUpperSeparator(true);
-                atd.TextAlignment = "Center";
+                atd.StandardDrawer.DrawTopBorder(true);
+                atd.Alignment = TextAlignment.Center;
                 foreach (var info in infoSection)
                 {
-                    atd.DrawRow(info);
+                    atd.StandardDrawer.DrawRow(info);
                 }
-                atd.DrawLowerSeparator(true);
-                atd.TextAlignment = "Left";
+                atd.StandardDrawer.DrawBottomBorder();
+                atd.Alignment = TextAlignment.Left;
 
                 for (int i = 0; i < menuItems.Length; i++)
                 {
                     if (i == selectedItemIndex)
                     {
                         atd.TextColor = ConsoleColor.Green;
-                        atd.DrawUpperSeparatorWithBar(6);
-                        atd.DrawRowWithBar($"{i + 1}->", ConsoleColor.Green, $"{menuItems[i]}", 6);
-                        atd.DrawLowerSeparatorWithBar(6);
+                        atd.WithBarDrawer.DrawTopBorder();
+                        atd.WithBarDrawer.DrawRowWithBar($"{i + 1}->", $"{menuItems[i]}");
+                        atd.StandardDrawer.DrawBottomBorder();
                     }
                     else
                     {
                         atd.TextColor = ConsoleColor.Red;
-                        atd.DrawUpperSeparatorWithBar(5);
-                        atd.DrawRowWithBar($"{i + 1}", ConsoleColor.Red, $"{menuItems[i]}", 5);
-                        atd.DrawLowerSeparatorWithBar(5);
+                        atd.WithBarDrawer.DrawTopBorder();
+                        atd.WithBarDrawer.DrawRowWithBar($"{i + 1}", $"{menuItems[i]}");
+                        atd.StandardDrawer.DrawBottomBorder();
                     }
                 }
                 atd.TextColor = ConsoleColor.Cyan;
@@ -296,7 +302,6 @@ namespace File_Browser
         }
     }
 }
-
 
 
 
